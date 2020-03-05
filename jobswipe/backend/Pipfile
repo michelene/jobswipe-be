@@ -13,8 +13,6 @@ autopep8 = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
 django-extensions = "*"
-markdown = "*"
-django-filter = "*"
 
 [requires]
 python_version = "3.8"
