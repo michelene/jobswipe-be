@@ -59,3 +59,10 @@ The user can review their saved jobs at any time.
 - I have created routes for PostgreSQL/Django User/Group. Do I need a separate model for JobSeeker, or can I piggyback off of User? (I suspect I need to create a separate JobSeeker model.)
 
 ## User Stories
+
+## Links
+
+- [Front End Repo](https://github.com/michelene/jobswipe_fe)
+- [Back End Repo](https://github.com/michelene/jobswipe_be)
+- [Deployed Front End]()
+- [Deployed Back End]()
