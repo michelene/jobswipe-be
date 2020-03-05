@@ -15,28 +15,46 @@ The user can review their saved jobs at any time.
 
 ## Models
 
-- JobSeeker
+- `JobSeeker`
 
-  - Username
+  - `Username`
   - I plan to use Social Auth as well as Django built-in auth, so whatever is needed to support those
-  - NewJobs # Jobs they have not yet reviewed
-  - SavedJobs # Jobs they have specifically saved
+  - `NewJobs` # Jobs they have not yet reviewed
+  - `SavedJobs` # Jobs they have specifically saved
   - Once I get everything working, I might add the feature of the JobSeeker being able to have multiple saved lists (e.g. 'Django Jobs', 'React Jobs', etc.)
 
-- JobPosting
+- `JobPosting`
 
-  - GHJ ID (The unique ID assigned by GitHub Jobs)
+  - `GHJ ID` (The unique ID assigned by GitHub Jobs)
   - Possibly store as a [JSONField](https://docs.djangoproject.com/en/3.0/ref/contrib/postgres/fields/#jsonfield) <-- Jen, do you have any thoughts on this?
 
-- JobList
+- `JobList`
+  - `ListTitle`
   - I am not sure if I will need this as its own object. It would basically be a many-to-one (`ForeignKey`) collection of JobPostings
-  - If I create this model, then JobSeeker.NewJobs and JobSeeker.SavedJobs will be of type JobList
+  - If I create this model, then `JobSeeker.NewJobs` and `JobSeeker.SavedJobs` will be of type `JobList`
 
 ## Technologies
 
 - ReactJS + Material UI for front end
 - Django/PostgreSQL for back end
 - Django REST Framework
+
+## 3rd Party APIs
+
+- [GitHub Jobs API](https://jobs.github.com/api)
+
+## Django Components
+
+- psycopg2-binary
+- django-extensions
+- cors-headers
+- djangorestframework
+- markdown
+- django-filter
+
+## Material UI Components
+
+- [Signup Template](https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/sign-up)
 
 ## MVP
 
