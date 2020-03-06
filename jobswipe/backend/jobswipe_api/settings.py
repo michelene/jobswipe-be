@@ -56,6 +56,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'jobswipe_api.urls'
 
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
