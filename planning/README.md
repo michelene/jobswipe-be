@@ -1,4 +1,4 @@
-# jobswipe
+# jobswipe - Project Proposal
 
 ## Overview
 
