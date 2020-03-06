@@ -15,6 +15,7 @@ django-cors-headers = "*"
 django-extensions = "*"
 markdown = "*"
 django-filter = "*"
+django-contrib-postgres = "*"
 
 [requires]
 python_version = "3.8"
