@@ -16,6 +16,7 @@ django-extensions = "*"
 markdown = "*"
 django-filter = "*"
 django-contrib-postgres = "*"
+requests = "*"
 
 [requires]
 python_version = "3.8"
