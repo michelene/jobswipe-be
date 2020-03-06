@@ -7,16 +7,7 @@ class JobSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'ghj_id',
-            'type',
-            'url',
-            'created_at',
-            'company',
-            'company_url',
-            'location',
-            'title',
-            'description',
-            'how_to_apply',
-            'companyLogo',
+            'data',
         )
         model = Job
 
