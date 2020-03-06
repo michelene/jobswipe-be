@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f413e872d18267140eb37d278389b4e044b8ff821c483b15adf23709566558bf"
+            "sha256": "96f8307a804f2a4985801eb357766bffa9379b673985e4541e04500e2fbed543"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -44,6 +44,13 @@
             ],
             "index": "pypi",
             "version": "==3.0.4"
+        },
+        "django-contrib-postgres": {
+            "hashes": [
+                "sha256:4c8b57efd93ed0a37ba6fb457c69993ef3f2a51c560c0dd7b1b3cfb78810b0ff"
+            ],
+            "index": "pypi",
+            "version": "==0.0.1"
         },
         "django-cors-headers": {
             "hashes": [
