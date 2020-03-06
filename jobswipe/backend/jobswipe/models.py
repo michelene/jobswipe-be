@@ -23,9 +23,9 @@ class JobSeeker(models.Model):
 
 class JobList(models.Model):
     title = models.CharField(max_length=100)
-    jobs = models.ManyToManyField(Job, related_name='joblists')
+    jobs = models.ManyToManyField(Job)
     jobseeker = models.ForeignKey(
-        JobSeeker, on_delete=models.CASCADE, related_name='job_lists', default=1)
+        JobSeeker, on_delete=models.CASCADE, default=1)
 
     def __str__(self):
         return self.title
