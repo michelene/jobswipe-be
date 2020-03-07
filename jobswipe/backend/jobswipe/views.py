@@ -60,7 +60,8 @@ class DetailJobSeeker(generics.RetrieveUpdateDestroyAPIView):
 @api_view(['GET', 'POST'])
 # @permission_classes([IsAuthenticated])
 def hello_world(request):
-    jobs_url = 'https://jobs.github.com/positions.json?&description=toptal'
+    # jobs_url = 'https://jobs.github.com/positions.json?&description=toptal'
+    jobs_url = 'https://jobs.github.com/positions.json?description=react&page=1'
     res = requests.get(jobs_url)
     # print(res.text)
     # res.text is '[{"id": "abcd", "key": "etc..."}, ...]'
