@@ -10,6 +10,6 @@ urlpatterns = [
     path('joblists/<int:pk>/', views.DetailJobList.as_view()),
     path('jobseekers/<int:pk>/', views.DetailJobSeeker.as_view()),
 
-    # path('getjobs/', views.hello_world.as_view()),
-    path('getjobs/', views.hello_world)
+    path('getghjobs/<int:pk>/', views.get_gh_jobs),
+    path('getghjobs/<int:pk>/<str:search_terms>', views.get_gh_jobs),
 ]
