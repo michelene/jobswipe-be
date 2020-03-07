@@ -1,4 +1,6 @@
 from rest_framework import generics
+from django.shortcuts import render
+
 
 from .models import Job, JobList, JobSeeker
 from .serializers import JobSerializer, JobListSerializer, JobSeekerSerializer
@@ -34,3 +36,8 @@ class ListJobSeekers(generics.ListCreateAPIView):
 class DetailJobSeeker(generics.RetrieveUpdateDestroyAPIView):
     queryset = JobSeeker.objects.all()
     serializer_class = JobSeekerSerializer
+
+# Pulling data from GHJ:
+# URL = https://jobs.github.com/positions.json?description=python&location=new+york&page=1
+# r = requests.get()
+# r.text <- will dump the JSON object, '[{}, {}, ...]'
