@@ -85,3 +85,5 @@ LINE 1: ...obswipe_joblist_jobs" ON ("jobswipe_job"."ghj_id" = "jobswip...
                                                              ^
 HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.```
 ````
+
+See also: https://stackoverflow.com/questions/38117069/django-charfield-suitable-for-a-primary-key
