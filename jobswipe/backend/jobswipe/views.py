@@ -1,5 +1,10 @@
-from rest_framework import generics
+from rest_framework import generics, response
 from django.shortcuts import render
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from django.http import JsonResponse
+# from django.forms.models import model_to_dict
+import requests
 
 
 from .models import Job, JobList, JobSeeker
@@ -41,3 +46,22 @@ class DetailJobSeeker(generics.RetrieveUpdateDestroyAPIView):
 # URL = https://jobs.github.com/positions.json?description=python&location=new+york&page=1
 # r = requests.get()
 # r.text <- will dump the JSON object, '[{}, {}, ...]'
+
+# !!! This hello_world works !!!
+# @api_view(['GET', 'POST'])
+# @permission_classes([IsAuthenticated])
+# def hello_world(request):
+#     if request.method == 'POST':
+#         return JsonResponse({"message": "Got some data!", "data": request.data})
+#     return JsonResponse({"message": "Hello, world!"})
+
+
+# !!! The GET below works !!!
+@api_view(['GET', 'POST'])
+# @permission_classes([IsAuthenticated])
+def hello_world(request):
+    jobs_url = 'https://jobs.github.com/positions.json?&description=toptal'
+    res = requests.get(jobs_url)
+    # print(res.text)
+    # res.text is '[{"id": "abcd", "key": "etc..."}, ...]'
+    return JsonResponse(res.text, safe=False)
