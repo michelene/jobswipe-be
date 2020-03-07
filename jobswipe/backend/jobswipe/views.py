@@ -6,6 +6,7 @@ from rest_framework.permissions import IsAuthenticated
 from django.http import JsonResponse
 # from django.forms.models import model_to_dict
 import requests
+import json
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -77,7 +78,11 @@ def get_gh_jobs(request, pk=1, search_terms=''):
     base_url = 'https://jobs.github.com/positions.json?page=0'
     # search_url = 'https://jobs.github.com/positions.json?description=react&page=1'
     search_url = base_url + search_terms
-    res = requests.get(search_url)
+    ghjobs = requests.get(search_url)
+
     # print(res.text)
     # res.text is '[{"id": "abcd", "key": "etc..."}, ...]'
+    # Now here we need to validate the res.text and then store it to the DB:
+    job_instance = Job.objects.create(ghj_id="this is a test", data=res.text)
+
     return JsonResponse(res.text, safe=False)
