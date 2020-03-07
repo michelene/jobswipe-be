@@ -1,4 +1,5 @@
 from django.contrib.postgres.fields import JSONField
+from django.db.models.functions import Cast
 from django.db import models
 
 
@@ -6,7 +7,7 @@ from django.db import models
 
 
 class Job(models.Model):
-    ghj_id = models.CharField(max_length=100)
+    ghj_id = models.CharField(max_length=100, unique=True)
     data = JSONField()
 
     def __str__(self):
@@ -15,7 +16,8 @@ class Job(models.Model):
 
 class JobSeeker(models.Model):
     username = models.CharField(max_length=100)
-    email = models.CharField(max_length=500)
+    email = models.CharField(unique=True,
+                             max_length=500)
 
     def __str__(self):
         return self.username

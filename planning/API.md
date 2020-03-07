@@ -1,32 +1,30 @@
 # API
 
-| HTTP Method | Path                       | Description |
-| ----------- | -------------------------- | ----------- |
-| `GET`       | `/api/jobs`                |             |
-| `GET`       | `/api/joblists`            |             |
-| `GET`       | `/api/jobseekers`          |             |
-|             |                            |             |
-| `GET`       | `/api/searchnew/:location` |             |
-| `GET`       | `/api/searchnew/:term`     |             |
-|             |                            |             |
-| `GET`       | `/api/searchsaved/:term`   |             |
-|             |                            |             |
-| `GET`       | `/api/jobs/:id`            |             |
-| `GET`       | `/api/joblists/:id`        |             |
-| `GET`       | `/api/jobseekers/:id`      |             |
-|             |                            |             |
-| `POST`      | `/api/jobs`                |             |
-| `POST`      | `/api/joblists`            |             |
-| `POST`      | `/api/jobseekers`          |             |
-|             |                            |             |
-| `PUT`       | `/api/jobs/:id`            |             |
-| `PUT`       | `/api/joblists/:id`        |             |
-| `PUT`       | `/api/jobseekers/:id`      |             |
-|             |                            |             |
-| `DELETE`    | `/api/jobs/:id`            |             |
-| `DELETE`    | `/api/joblists/:id`        |             |
-| `DELETE`    | `/api/jobseekers/:id`      |             |
-|             |                            |             |
+| HTTP Method | Path                             | Description |
+| ----------- | -------------------------------- | ----------- |
+| `GET`       | `/jobs`                          |             |
+| `GET`       | `/jobs/:ghj_id`                  |             |
+|             |                                  |             |
+| `GET`       | `/joblists`                      |             |
+| `GET`       | `/joblists/:uid`                 |             |
+|             |                                  |             |
+| `GET`       | `/jobseekers`                    |             |
+| `GET`       | `/jobseekers/:uid`               |             |
+|             |                                  |             |
+| `GET`       | `/getghjobs/:uid`                |             |
+| `GET`       | `/getghjobs/:uid/:search_params` |             |
+|             |                                  |             |
+| `GET`       | `/getsavedjobs/:uid`             |             |
+|             |                                  |             |
+| `POST`      | `/joblists`                      |             |
+| `POST`      | `/jobseekers`                    |             |
+|             |                                  |             |
+| `PUT`       | `/joblists/:uid/:lid`            |             |
+| `PUT`       | `/jobseekers/:uid`               |             |
+|             |                                  |             |
+| `DELETE`    | `/joblists/:uid/:lid`            |             |
+| `DELETE`    | `/jobseekers/:uid`               |             |
+|             |                                  |             |
 
 | Error Code                       | Meaning                                                   |
 | -------------------------------- | --------------------------------------------------------- |

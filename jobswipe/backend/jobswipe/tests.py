@@ -8,15 +8,15 @@ class JobSwipeTest(TestCase):
 
     @classmethod
     def setUpTestData(cls):
-        Job.objects.create(title="Software Engineer, ReactJS")
-        Job.objects.create(description="Build React apps")
+        JobSeeker.objects.create(username="JohnDoe")
+        JobSeeker.objects.create(email="jdoe@mail.com")
 
-    def test_title_content(self):
-        todo = Todo.objects.get(id=8)
-        expected_object_name = f'{job.title}'
-        self.assertEquals(expected_object_name, "Software Engineer, ReactJS")
+    def test_username_content(self):
+        jobseeker = JobSeeker.objects.get(id=1)
+        expected_object_name = f'{jobseeker.username}'
+        self.assertEquals(expected_object_name, "JohnDoe")
 
-    def test_description_content(self):
-        todo = Todo.objects.get(id=9)
-        expected_object_name = f'{job.description}'
-        self.assertEquals(expected_object_name, "Build React apps")
+    def test_email_content(self):
+        email = JobSeeker.objects.get(id=1)
+        expected_object_name = f'{jobseeker.email}'
+        self.assertEquals(expected_object_name, "jdoe@email.com")
