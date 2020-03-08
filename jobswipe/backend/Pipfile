@@ -17,7 +17,7 @@ markdown = "*"
 django-filter = "*"
 django-contrib-postgres = "*"
 requests = "*"
-rest-social-auth = "*"
+django-rest-auth = "*"
 
 [requires]
 python_version = "3.8"

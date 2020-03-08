@@ -11,8 +11,10 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 
-from .models import Job, JobList, JobSeeker
-from .serializers import JobSerializer, JobListSerializer, JobSeekerSerializer
+from .models import Job
+# from .models import Job, JobList, JobSeeker
+from .serializers import JobSerializer
+# from .serializers import JobSerializer, JobListSerializer, JobSeekerSerializer
 
 # Create your views here.
 
@@ -27,24 +29,24 @@ class DetailJob(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = JobSerializer
 
 
-class ListJobLists(generics.ListCreateAPIView):
-    queryset = JobList.objects.all()
-    serializer_class = JobListSerializer
+# class ListJobLists(generics.ListCreateAPIView):
+#     queryset = JobList.objects.all()
+#     serializer_class = JobListSerializer
 
 
-class DetailJobList(generics.RetrieveUpdateDestroyAPIView):
-    queryset = JobList.objects.all()
-    serializer_class = JobListSerializer
+# class DetailJobList(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = JobList.objects.all()
+#     serializer_class = JobListSerializer
 
 
-class ListJobSeekers(generics.ListCreateAPIView):
-    queryset = JobSeeker.objects.all()
-    serializer_class = JobSeekerSerializer
+# class ListJobSeekers(generics.ListCreateAPIView):
+#     queryset = JobSeeker.objects.all()
+#     serializer_class = JobSeekerSerializer
 
 
-class DetailJobSeeker(generics.RetrieveUpdateDestroyAPIView):
-    queryset = JobSeeker.objects.all()
-    serializer_class = JobSeekerSerializer
+# class DetailJobSeeker(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = JobSeeker.objects.all()
+#     serializer_class = JobSeekerSerializer
 
 # Pulling data from GHJ:
 # URL = https://jobs.github.com/positions.json?description=python&location=new+york&page=1

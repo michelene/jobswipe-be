@@ -15,6 +15,8 @@
 - [I wrote a custom function-based DRF view to call a 3rd party API](https://www.django-rest-framework.org/api-guide/views/#function-based-views)
 
 - [Django `APIView`](https://www.django-rest-framework.org/api-guide/views/)
+- [Substituting a custom User model](https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#using-a-custom-user-model-when-starting-a-project)
+  - Also used this [tutorial](https://wsvincent.com/django-rest-framework-user-authentication-tutorial/)
 
 ## Unresolved Issues
 

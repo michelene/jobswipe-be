@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'django_extensions',
     'corsheaders',
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
     'jobswipe',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -77,6 +80,8 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL = 'users.CustomUser'
+
 WSGI_APPLICATION = 'jobswipe_api.wsgi.application'
 
 REST_FRAMEWORK = {
@@ -86,7 +91,7 @@ REST_FRAMEWORK = {
         # Temporarily set to AllowAny in order to test API
         'rest_framework.permissions.AllowAny',
         # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    ],
 }
 
 # Database
