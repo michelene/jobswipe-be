@@ -17,6 +17,7 @@
 - [Django `APIView`](https://www.django-rest-framework.org/api-guide/views/)
 - [Substituting a custom User model](https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#using-a-custom-user-model-when-starting-a-project)
   - Also used this [tutorial](https://wsvincent.com/django-rest-framework-user-authentication-tutorial/)
+- Add user registration using the [django-allauth](https://django-rest-auth.readthedocs.io/en/latest/installation.html#registration-optional) package
 
 ## Unresolved Issues
 

@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Job, JobList, JobSeeker
+from .models import Job, JobList
 
 # Create your tests here.
 
@@ -8,15 +8,15 @@ class JobSwipeTest(TestCase):
 
     @classmethod
     def setUpTestData(cls):
-        JobSeeker.objects.create(username="JohnDoe")
-        JobSeeker.objects.create(email="jdoe@mail.com")
+        Job.objects.create(ghj_id="12345")
+        Job.objects.create(data="[{"title": "something", "description": "something else"}]")
 
-    def test_username_content(self):
-        jobseeker = JobSeeker.objects.get(id=1)
-        expected_object_name = f'{jobseeker.username}'
-        self.assertEquals(expected_object_name, "JohnDoe")
+    def test_ghj_id_content(self):
+        job = Job.objects.get(id=1)
+        expected_object_name = f'{job.ghj_id}'
+        self.assertEquals(expected_object_name, "12345")
 
-    def test_email_content(self):
-        email = JobSeeker.objects.get(id=1)
-        expected_object_name = f'{jobseeker.email}'
-        self.assertEquals(expected_object_name, "jdoe@email.com")
+    def test_data_content(self):
+        job = Job.objects.get(id=1)
+        expected_object_name = f'{job.data}'
+        self.assertEquals(expected_object_name, "[{"title": "something", "description": "something else"}]")
