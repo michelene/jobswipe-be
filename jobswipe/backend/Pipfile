@@ -18,6 +18,7 @@ django-filter = "*"
 django-contrib-postgres = "*"
 requests = "*"
 django-rest-auth = "*"
+django-allauth = "*"
 
 [requires]
 python_version = "3.8"

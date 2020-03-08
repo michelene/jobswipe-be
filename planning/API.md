@@ -1,30 +1,32 @@
 # API
 
-| HTTP Method | Path                             | Description |
-| ----------- | -------------------------------- | ----------- |
-| `GET`       | `/jobs`                          |             |
-| `GET`       | `/jobs/:ghj_id`                  |             |
-|             |                                  |             |
-| `GET`       | `/joblists`                      |             |
-| `GET`       | `/joblists/:uid`                 |             |
-|             |                                  |             |
-| `GET`       | `/jobseekers`                    |             |
-| `GET`       | `/jobseekers/:uid`               |             |
-|             |                                  |             |
-| `GET`       | `/getghjobs/:uid`                |             |
-| `GET`       | `/getghjobs/:uid/:search_params` |             |
-|             |                                  |             |
-| `GET`       | `/getsavedjobs/:uid`             |             |
-|             |                                  |             |
-| `POST`      | `/joblists`                      |             |
-| `POST`      | `/jobseekers`                    |             |
-|             |                                  |             |
-| `PUT`       | `/joblists/:uid/:lid`            |             |
-| `PUT`       | `/jobseekers/:uid`               |             |
-|             |                                  |             |
-| `DELETE`    | `/joblists/:uid/:lid`            |             |
-| `DELETE`    | `/jobseekers/:uid`               |             |
-|             |                                  |             |
+| HTTP Method | Path                                   | Description                  |
+| ----------- | -------------------------------------- | ---------------------------- |
+| `GET`       | `api/v1/users`                         | See all users                |
+|             |                                        |                              |
+| `GET`       | `api/v1/rest-auth/login`               | Log in; returns a REST token |
+| `GET`       | `api/v1/rest-auth/logout`              | Log out; returns nothing     |
+| `GET`       | `api/v1/rest-auth/registration`        | Create a new account         |
+|             |                                        |                              |
+| `GET`       | `api/v1/jobs`                          | See all jobs                 |
+| `GET`       | `api/v1/jobs/:ghj_id`                  |                              |
+|             |                                        |                              |
+| `GET`       | `api/v1/joblists`                      | See all joblists             |
+| `GET`       | `api/v1/joblists/:uid`                 |                              |
+|             |                                        |                              |
+| `GET`       | `api/v1/getghjobs/:uid`                |                              |
+| `GET`       | `api/v1/getghjobs/:uid/:search_params` |                              |
+|             |                                        |                              |
+| `GET`       | `api/v1/getsavedjobs/:uid`             |                              |
+|             |                                        |                              |
+| `POST`      | `api/v1/joblists`                      |                              |
+|             |                                        |                              |
+| `PUT`       | `api/v1/joblists/:uid/:lid`            |                              |
+|             |                                        |                              |
+| `DELETE`    | `api/v1/joblists/:uid/:lid`            |                              |
+|             |                                        |                              |
+
+# User Auth
 
 | Error Code                       | Meaning                                                   |
 | -------------------------------- | --------------------------------------------------------- |

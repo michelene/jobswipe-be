@@ -1,6 +1,5 @@
 from rest_framework import serializers
-from .models import Job
-# from .models import Job, JobList, JobSeeker
+from .models import Job, JobList
 
 
 class JobSerializer(serializers.ModelSerializer):
@@ -13,22 +12,12 @@ class JobSerializer(serializers.ModelSerializer):
         model = Job
 
 
-# class JobListSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         fields = (
-#             'id',
-#             'title',
-#             'jobs',
-#             'jobseeker',
-#         )
-#         model = JobList
-
-
-# class JobSeekerSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         fields = (
-#             'id',
-#             'username',
-#             'email',
-#         )
-#         model = JobSeeker
+class JobListSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = (
+            'id',
+            'title',
+            'jobs',
+            'jobseeker',
+        )
+        model = JobList
