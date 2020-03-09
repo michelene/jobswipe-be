@@ -94,14 +94,17 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 WSGI_APPLICATION = 'jobswipe_api.wsgi.application'
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        # Temporarily set to AllowAny in order to test API
-        'rest_framework.permissions.AllowAny',
-        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ],
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
 }
+
+JWT_ALLOW_REFRESH = True
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases

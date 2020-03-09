@@ -74,6 +74,6 @@ def get_gh_jobs(request, pk=1, search_terms=''):
     # print(res.text)
     # res.text is '[{"id": "abcd", "key": "etc..."}, ...]'
     # Now here we need to validate the res.text and then store it to the DB:
-    job_instance = Job.objects.create(ghj_id="this is a test", data=res.text)
+    # job_instance = Job.objects.create(ghj_id="this is a test", data=res.text)
 
     return JsonResponse(res.text, safe=False)
