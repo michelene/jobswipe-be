@@ -19,8 +19,8 @@ class Job(models.Model):
         return self.ghj_id
 
 
-class NewJobList(models.Model):
-    title = models.CharField(max_length=100)
+class UnreviewedJobs(models.Model):
+    title = models.CharField(max_length=100, default='Unreviewed Jobs')
     jobs = models.ManyToManyField(Job)
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -28,6 +28,18 @@ class NewJobList(models.Model):
         on_delete=models.CASCADE
     )
 
+    def __str__(self):
+        return self.title
 
-def __str__(self):
-    return self.title
+
+class SavedJobs(models.Model):
+    title = models.CharField(max_length=100, default='Saved Jobs')
+    jobs = models.ManyToManyField(Job)
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        # get_user_model(),
+        on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        return self.title
