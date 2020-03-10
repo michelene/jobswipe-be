@@ -85,14 +85,18 @@ def get_gh_jobs(request, search_terms=''):
     params = search_terms
     print(params)
     current_user = request.user
-    print(current_user.id)
+    # print(current_user.id)
     base_url = 'https://jobs.github.com/positions.json?page=0'
     # search_url = 'https://jobs.github.com/positions.json?description=react&page=1'
     search_url = base_url + search_terms
     res = requests.get(search_url)
+    # If this user does not yet have a Saved list, create one:
     for job in json.load(res.text):
         ghj_id = job['id']
-        job_instance = Job.objects.create(ghj_id=ghj_id, data=job)
+        # ghj_title = job['title']
+        print('Saving ', ghj_id)
+        print('User is ', current_user.id, current_user.username)
+        # job_instance = Job.objects.create(ghj_id=ghj_id, data=job)
 
     # print(res.text)
     # res.text is '[{"id": "abcd", "key": "etc..."}, ...]'
