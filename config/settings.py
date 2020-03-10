@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '6vea5$znl-c4ae1j8gf8ys-cy(nyqt9bgwdoy^-3^++ezc5hhb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['jobswipe-be.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # Application definition

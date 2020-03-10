@@ -1,0 +1,1 @@
+web: gunicorn jobswipe-be --log-file -
