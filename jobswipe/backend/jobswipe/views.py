@@ -4,7 +4,6 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework import authentication, permissions
 from rest_framework.permissions import IsAuthenticated
 from django.http import JsonResponse
-# from django.forms.models import model_to_dict
 import requests
 import json
 from rest_framework.views import APIView
@@ -71,36 +70,11 @@ class DetailUnreviewed(generics.RetrieveUpdateDestroyAPIView):
 #
 @api_view(['GET', 'POST'])
 # @permission_classes([IsAuthenticated])
-def get_gh_jobs(request, search_terms=''):
-    # jobs_url = 'https://jobs.github.com/positions.json?&description=toptal'
-    #   For GET /positions.json:
-    #     &page=(0, ...)
-    #     &description=
-    #     &location=
-    #     &lat=
-    #     &long=
-    #     &full_time=
-    # For GET /positions/ID.json:
-    #     &markdown=(true|false) <- otherwise returns HTML markup
-    params = search_terms
-    print(params)
-    current_user = request.user
-    # print(current_user.id)
+def get_gh_jobs(request):
     base_url = 'https://jobs.github.com/positions.json?page=0'
-    # search_url = 'https://jobs.github.com/positions.json?description=react&page=1'
-    search_url = base_url + search_terms
-    res = requests.get(search_url)
-    # If this user does not yet have a Saved list, create one:
-    for job in json.load(res.text):
-        ghj_id = job['id']
-        # ghj_title = job['title']
-        print('Saving ', ghj_id)
-        print('User is ', current_user.id, current_user.username)
-        # job_instance = Job.objects.create(ghj_id=ghj_id, data=job)
-
-    # print(res.text)
-    # res.text is '[{"id": "abcd", "key": "etc..."}, ...]'
-    # Now here we need to validate the res.text and then store it to the DB:
-    # job_instance = Job.objects.create(ghj_id="this is a test", data=res.text)
-
-    return JsonResponse(res.text, safe=False)
+    query_params = request.query_params
+    # Here, we are using the Python 'requests' module:
+    res = requests.get(base_url, params=query_params)
+    # TODO: Add error handling
+    return Response(res.text)
+    # Process the Response on the client side, and save individual jobs by having the client call the API
