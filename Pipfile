@@ -23,6 +23,7 @@ djangorestframework-jwt = "*"
 gunicorn = "*"
 whitenoise = "*"
 python-dotenv = "*"
+django-heroku = "*"
 
 [requires]
 python_version = "3.8"

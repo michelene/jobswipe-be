@@ -1,1 +1,1 @@
-web: gunicorn jobswipe-be --log-file -
+web: gunicorn config.wsgi
