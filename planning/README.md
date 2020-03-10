@@ -81,6 +81,6 @@ The user can review their saved jobs at any time.
 ## Links
 
 - [Front End Repo](https://github.com/michelene/jobswipe_fe)
-- [Back End Repo](https://github.com/michelene/jobswipe_be)
+- [Back End Repo](https://github.com/michelene/jobswipe-be)
 - [Deployed Front End]()
 - [Deployed Back End]()
