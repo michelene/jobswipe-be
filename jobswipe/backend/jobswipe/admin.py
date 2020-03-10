@@ -1,7 +1,8 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+from .models import User, Job, NewJobList
 
-from .models import Job, JobList
 
-
+admin.site.register(User, UserAdmin)
 admin.site.register(Job)
-admin.site.register(JobList)
+admin.site.register(NewJobList)

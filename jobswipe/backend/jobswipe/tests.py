@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Job, JobList
+from .models import Job, NewJobList
 
 # Create your tests here.
 

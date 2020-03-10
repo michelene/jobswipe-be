@@ -39,7 +39,7 @@
 
 ## Unresolved Issues
 
-- I tried making 'ghj_id' (a CharField) into a Primary Key. This was successful, but it broke JobList. Error stack was as follows. I would like to try to CAST the Charfield into an int, but could not figure out how to do so.
+- I tried making 'ghj_id' (a CharField) into a Primary Key. This was successful, but it broke NewJobList. Error stack was as follows. I would like to try to CAST the Charfield into an int, but could not figure out how to do so.
 
 So, I wasn't able to make 'ghj_id' be the Primary Key. :-(
 

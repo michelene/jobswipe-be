@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'jobswipe',
-    'users',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +67,9 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
 
+AUTH_USER_MODEL = 'jobswipe.User'
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -83,8 +85,6 @@ TEMPLATES = [
         },
     },
 ]
-
-AUTH_USER_MODEL = "users.CustomUser"
 
 # SITE_ID and EMAIL_BACKEND are used by django-allauth
 SITE_ID = 1

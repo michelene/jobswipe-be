@@ -11,10 +11,15 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 
-from .models import Job, JobList
-from .serializers import JobSerializer, JobListSerializer
+from .models import User, Job, NewJobList
+from .serializers import UserSerializer, JobSerializer, NewJobListSerializer
 
 # Create your views here.
+
+
+class UserListView(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
 class ListJobs(generics.ListCreateAPIView):
@@ -27,35 +32,31 @@ class DetailJob(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = JobSerializer
 
 
-class ListJobLists(generics.ListCreateAPIView):
-    queryset = JobList.objects.all()
-    serializer_class = JobListSerializer
+class ListNewJobLists(generics.ListCreateAPIView):
+    queryset = NewJobList.objects.all()
+    serializer_class = NewJobListSerializer
 
 
-class DetailJobList(generics.RetrieveUpdateDestroyAPIView):
-    queryset = JobList.objects.all()
-    serializer_class = JobListSerializer
+class DetailNewJobList(generics.RetrieveUpdateDestroyAPIView):
+    queryset = NewJobList.objects.all()
+    serializer_class = NewJobListSerializer
 
 
 # Pulling data from GHJ:
 # URL = https://jobs.github.com/positions.json?description=python&location=new+york&page=1
 # r = requests.get()
 # r.text <- will dump the JSON object, '[{}, {}, ...]'
-
-# !!! This get_gh_jobs works !!!
-# @api_view(['GET', 'POST'])
-# @permission_classes([IsAuthenticated])
-# def get_gh_jobs(request):
-#     if request.method == 'POST':
-#         return JsonResponse({"message": "Got some data!", "data": request.data})
-#     return JsonResponse({"message": "Hello, world!"})
-
-
-# !!! The GET below works !!!
-# get_gh_jobs is a function-based view, so we need the @api_views decorator:
+#
+# get_gh_jobs is a function-based view, so we need the @api_view decorator:
+# By default, the @api_view decorator will catch any error
+#  and return a 400 Bad Request response
+#
+# This view will behave the same for GET and POST
+# That is because we are GETting from GHJ API, and POSTint to postgres
+#
 @api_view(['GET', 'POST'])
 # @permission_classes([IsAuthenticated])
-def get_gh_jobs(request, pk=1, search_terms=''):
+def get_gh_jobs(request, search_terms=''):
     # jobs_url = 'https://jobs.github.com/positions.json?&description=toptal'
     #   For GET /positions.json:
     #     &page=(0, ...)
@@ -66,10 +67,17 @@ def get_gh_jobs(request, pk=1, search_terms=''):
     #     &full_time=
     # For GET /positions/ID.json:
     #     &markdown=(true|false) <- otherwise returns HTML markup
+    params = search_terms
+    print(params)
+    current_user = request.user
+    print(current_user.id)
     base_url = 'https://jobs.github.com/positions.json?page=0'
     # search_url = 'https://jobs.github.com/positions.json?description=react&page=1'
     search_url = base_url + search_terms
-    ghjobs = requests.get(search_url)
+    res = requests.get(search_url)
+    for job in json.load(res.text):
+        ghj_id = job['id']
+        job_instance = Job.objects.create(ghj_id=ghj_id, data=job)
 
     # print(res.text)
     # res.text is '[{"id": "abcd", "key": "etc..."}, ...]'

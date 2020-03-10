@@ -28,10 +28,10 @@ The user can review their saved jobs at any time.
   - `GHJ ID` (The unique ID assigned by GitHub Jobs)
   - Possibly store as a [JSONField](https://docs.djangoproject.com/en/3.0/ref/contrib/postgres/fields/#jsonfield) <-- Jen, do you have any thoughts on this?
 
-- `JobList`
+- `NewJobList`
   - `ListTitle`
   - I am not sure if I will need this as its own object. It would basically be a many-to-one (`ForeignKey`) collection of JobPostings
-  - If I create this model, then `JobSeeker.NewJobs` and `JobSeeker.SavedJobs` will be of type `JobList`
+  - If I create this model, then `JobSeeker.NewJobs` and `JobSeeker.SavedJobs` will be of type `NewJobList`
 
 ## Technologies
 

@@ -1,5 +1,11 @@
 from rest_framework import serializers
-from .models import Job, JobList
+from .models import User, Job, NewJobList
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('email', 'username', )
 
 
 class JobSerializer(serializers.ModelSerializer):
@@ -12,12 +18,12 @@ class JobSerializer(serializers.ModelSerializer):
         model = Job
 
 
-class JobListSerializer(serializers.ModelSerializer):
+class NewJobListSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
             'id',
             'title',
             'jobs',
-            'jobseeker',
+            'owner',
         )
-        model = JobList
+        model = NewJobList
