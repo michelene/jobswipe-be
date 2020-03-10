@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import User, Job, UnreviewedJobs, SavedJobs
+from .models import User, Job
 
 # Create your tests here.
 

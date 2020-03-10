@@ -18,11 +18,11 @@ urlpatterns = [
     path('jobs/', views.ListJob.as_view()),
     path('jobs/<int:pk>/', views.DetailJob.as_view()),
 
-    path('unreviewedjobs/', views.ListUnreviewedJobs.as_view()),
-    path('unreviewedjobs/<int:pk>/', views.DetailUnreviewedJobs.as_view()),
+    path('saved/', views.ListSaved.as_view()),
+    path('saved/<int:pk>/', views.DetailSaved.as_view()),
 
-    path('savedjobs/', views.ListSavedJobs.as_view()),
-    path('savedjobs/<int:pk>/', views.DetailSavedJobs.as_view()),
+    path('unreviewed/', views.ListUnreviewed.as_view()),
+    path('unreviewed/<int:pk>/', views.DetailUnreviewed.as_view()),
 
     # The body of this will contain search terms if any
     path('getghjobs/', views.get_gh_jobs),

@@ -11,8 +11,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 
-from .models import User, Job, UnreviewedJobs, SavedJobs
-from .serializers import UserSerializer, JobSerializer, UnreviewedJobsSerializer, SavedJobsSerializer
+from .models import User, Job, Saved, Unreviewed
+from .serializers import UserSerializer, JobSerializer, SavedSerializer, UnreviewedSerializer
 
 # Create your views here.
 
@@ -37,24 +37,25 @@ class DetailJob(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = JobSerializer
 
 
-class ListUnreviewedJobs(generics.ListCreateAPIView):
-    queryset = UnreviewedJobs.objects.all()
-    serializer_class = UnreviewedJobsSerializer
+class ListSaved(generics.ListCreateAPIView):
+    queryset = Saved.objects.all()
+    serializer_class = SavedSerializer
 
 
-class DetailUnreviewedJobs(generics.RetrieveUpdateDestroyAPIView):
-    queryset = UnreviewedJobs.objects.all()
-    serializer_class = UnreviewedJobsSerializer
+class DetailSaved(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Saved.objects.all()
+    serializer_class = SavedSerializer
 
 
-class ListSavedJobs(generics.ListCreateAPIView):
-    queryset = SavedJobs.objects.all()
-    serializer_class = SavedJobsSerializer
+class ListUnreviewed(generics.ListCreateAPIView):
+    queryset = Unreviewed.objects.all()
+    serializer_class = UnreviewedSerializer
 
 
-class DetailSavedJobs(generics.RetrieveUpdateDestroyAPIView):
-    queryset = SavedJobs.objects.all()
-    serializer_class = SavedJobsSerializer
+class DetailUnreviewed(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Unreviewed.objects.all()
+    serializer_class = UnreviewedSerializer
+
 
 # Pulling data from GHJ:
 # URL = https://jobs.github.com/positions.json?description=python&location=new+york&page=1

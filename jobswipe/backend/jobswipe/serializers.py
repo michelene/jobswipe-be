@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from .models import User, Job, UnreviewedJobs, SavedJobs
+from .models import User, Job, Saved, Unreviewed
 
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('email', 'username', )
+        fields = ('email', 'username', 'saved_jobs', 'unreviewed_jobs')
 
 
 class JobSerializer(serializers.ModelSerializer):
@@ -13,28 +13,30 @@ class JobSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'ghj_id',
+            'title',
+            'company',
             'data',
         )
         model = Job
 
 
-class UnreviewedJobsSerializer(serializers.ModelSerializer):
+class SavedSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
             'id',
             'title',
             'jobs',
-            'owner',
+            'owner'
         )
-        model = UnreviewedJobs
+        model = Saved
 
 
-class SavedJobsSerializer(serializers.ModelSerializer):
+class UnreviewedSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
             'id',
             'title',
             'jobs',
-            'owner',
+            'owner'
         )
-        model = SavedJobs
+        model = Unreviewed
