@@ -6,6 +6,8 @@ from django.contrib.postgres.fields import JSONField
 
 class Job(models.Model):
     ghj_id = models.CharField(max_length=100, unique=True)
+    title = models.CharField(max_length=100, default='')
+    company = models.CharField(max_length=100, default='')
     data = JSONField()
 
     def __str__(self):
