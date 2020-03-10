@@ -19,9 +19,27 @@
   - Also used this [tutorial](https://wsvincent.com/django-rest-framework-user-authentication-tutorial/)
 - Add user registration using the [django-allauth](https://django-rest-auth.readthedocs.io/en/latest/installation.html#registration-optional) package
 
+## Implementation Details
+
+### User Auth
+
+- To provide login, logout, signup, and JWT, I used a combination of these 3 packages:
+  - (1) [django-rest-auth](https://django-rest-auth.readthedocs.io/en/latest/introduction.html)
+    - Provides `rest-auth/{login|logout}`
+    - Returns a token key
+    - Also provides `rest-auth/password/{reset|change}` # Did not use
+    - Also provides `rest-auth/user/ (GET, PUT, PATCH)` # Did not use
+  - (2) [django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
+    - This provides a "standard registration process"
+    - Can be extended via to provide social auth by adding `allauth.socialaccount` as an app
+  - (3) [djangorestframework-jwt](https://jpadilla.github.io/django-rest-framework-jwt/)
+    - Instead of returning a token key, it returns a JWT
+    - Uses paths `api-token-{auth|refresh|verify}`
+    - Expects that the JWT will come in the header
+
 ## Unresolved Issues
 
-- I tried making 'ghj_id' (a CharField) into a Primary Key. This was successful, but it broke JobList. Error stack was as follows. I would like to try to CAST the Charfield into an int, but could not figure out how to do so.
+- I tried making 'ghj_id' (a CharField) into a Primary Key. This was successful, but it broke UnreviewedJobs. Error stack was as follows. I would like to try to CAST the Charfield into an int, but could not figure out how to do so.
 
 So, I wasn't able to make 'ghj_id' be the Primary Key. :-(
 

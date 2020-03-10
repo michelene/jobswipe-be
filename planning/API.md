@@ -2,6 +2,14 @@
 
 | HTTP Method | Path                                   | Description                              |
 | ----------- | -------------------------------------- | ---------------------------------------- |
+| `POST`      | `api/v1/rest-auth/login`               | Email not required; returns a REST token |
+| `POST`      | `api/v1/rest-auth/logout`              | Email not required                       |
+| `POST`      | `api/v1/rest-auth/registration`        | Returns 201 and REST token if successful |
+|             |                                        |                                          |
+| `POST`      | `api/v1/api-token-auth`                | Request a JWT token                      |
+| `POST`      | `api/v1/api-token-refresh`             | Refresh a JWT token                      |
+| `POST`      | `api/v1/api-token-verify`              | Verify a JWT token                       |
+|             |                                        |                                          |
 | `GET`       | `api/v1/users`                         | See all users                            |
 |             |                                        |                                          |
 | `GET`       | `api/v1/rest-auth/login`               | Log in; returns a REST token             |
@@ -24,10 +32,6 @@
 | `PUT`       | `api/v1/joblists/:uid/:lid`            |                                          |
 |             |                                        |                                          |
 | `DELETE`    | `api/v1/joblists/:uid/:lid`            |                                          |
-|             |                                        |                                          |
-| `POST`      | `api/v1/rest-auth/login`               | Email not required; returns a REST token |
-| `POST`      | `api/v1/rest-auth/logout`              | Email not required                       |
-| `POST`      | `api/v1/rest-auth/registration`        | Returns 201 and REST token if successful |
 |             |                                        |                                          |
 
 # User Auth

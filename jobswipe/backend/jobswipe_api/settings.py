@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'jobswipe',
-    'users',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +67,9 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
 
+AUTH_USER_MODEL = 'jobswipe.User'
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -84,8 +86,6 @@ TEMPLATES = [
     },
 ]
 
-AUTH_USER_MODEL = "users.CustomUser"
-
 # SITE_ID and EMAIL_BACKEND are used by django-allauth
 SITE_ID = 1
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -94,14 +94,17 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 WSGI_APPLICATION = 'jobswipe_api.wsgi.application'
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        # Temporarily set to AllowAny in order to test API
-        'rest_framework.permissions.AllowAny',
-        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ],
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
 }
+
+JWT_ALLOW_REFRESH = True
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
