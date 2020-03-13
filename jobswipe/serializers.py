@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import User, Job, Saved, Unreviewed
+from .models import User, Job, Saved
+# from .models import User, Job, Saved, Unreviewed
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -24,19 +25,18 @@ class SavedSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
             'id',
-            'title',
-            'jobs',
-            'owner'
+            'ghj_ids',
+            'owner_id'
         )
         model = Saved
 
 
-class UnreviewedSerializer(serializers.ModelSerializer):
-    class Meta:
-        fields = (
-            'id',
-            'title',
-            'jobs',
-            'owner'
-        )
-        model = Unreviewed
+# class UnreviewedSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         fields = (
+#             'id',
+#             'title',
+#             'jobs',
+#             'owner'
+#         )
+#         model = Unreviewed
