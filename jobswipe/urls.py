@@ -21,8 +21,8 @@ urlpatterns = [
     path('saved/', views.ListSaved.as_view()),
     path('saved/<int:pk>/', views.DetailSaved.as_view()),
 
-    # path('unreviewed/', views.ListUnreviewed.as_view()),
-    # path('unreviewed/<int:pk>/', views.DetailUnreviewed.as_view()),
+    path('unreviewed/', views.ListUnreviewed.as_view()),
+    path('unreviewed/<int:pk>/', views.DetailUnreviewed.as_view()),
 
     # The body of this will contain search terms if any
     path('getghjobs/', views.get_gh_jobs),

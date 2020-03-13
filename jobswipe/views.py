@@ -10,10 +10,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 
-from .models import User, Job, Saved
-# from .models import User, Job, Saved, Unreviewed
-from .serializers import UserSerializer, JobSerializer, SavedSerializer
-# from .serializers import UserSerializer, JobSerializer, SavedSerializer, UnreviewedSerializer
+from .models import User, Job, Saved, Unreviewed
+from .serializers import UserSerializer, JobSerializer, SavedSerializer, UnreviewedSerializer
 
 # Create your views here.
 
@@ -48,14 +46,14 @@ class DetailSaved(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = SavedSerializer
 
 
-# class ListUnreviewed(generics.ListCreateAPIView):
-#     queryset = Unreviewed.objects.all()
-#     serializer_class = UnreviewedSerializer
+class ListUnreviewed(generics.ListCreateAPIView):
+    queryset = Unreviewed.objects.all()
+    serializer_class = UnreviewedSerializer
 
 
-# class DetailUnreviewed(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Unreviewed.objects.all()
-#     serializer_class = UnreviewedSerializer
+class DetailUnreviewed(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Unreviewed.objects.all()
+    serializer_class = UnreviewedSerializer
 
 
 # Pulling data from GHJ:
